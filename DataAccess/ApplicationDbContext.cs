@@ -14,9 +14,9 @@ namespace Assignment4.DataAccess
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
       
-        public DbSet<SignUp> SignUp { get; set; }
+        //public DbSet<SignUp> SignUp { get; set; }
        
-        public DbSet<Results> Results { get; set; }
+        //public DbSet<Results> Results { get; set; }
 
     }
 }

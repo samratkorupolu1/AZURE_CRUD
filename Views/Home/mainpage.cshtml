@@ -19,13 +19,25 @@
 			Project by Dharmarakshit Harley, Samrat Korupolu and Michael Zeolla
 		</pWhite>
         <div class="header-right">
-            <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+            <a asp-area="" asp-controller="Home" asp-action="home">Home</a>
             <a class="active" asp-area="" asp-controller="Home" asp-action="mainpage">Main Page</a>
             <a asp-area="" asp-controller="Home" asp-action="aboutUs">About Us</a>
         </div>
 	</div>
 	<div class="container">
+		@model Assignment4.Models.EF_Models.Rootobject
 
+		@{
+			ViewData["Title"] = "Index";
+		}
+
+		<h2>Index</h2>
+
+		@foreach (Assignment4.Models.EF_Models.Result result in Model.results)
+		{
+			@(result.ori + " " + result.offense + " " + result.actual)
+			<br />
+		}
 		<table class="table table-hover">
 			<thead>
 				<tr>
