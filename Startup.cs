@@ -38,7 +38,7 @@ namespace Assignment4
             services.AddControllersWithViews();
             //services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration["Data:Project_DB:ConnectionString"]));
 
-            var connection = @"Server=(localdb)\mssqllocaldb;Database=University_DB;Trusted_Connection=True;ConnectRetryCount=0";
+            var connection = @"Server=(localdb)\mssqllocaldb;Database=Crime_DB;Trusted_Connection=True;ConnectRetryCount=0";
             //services.AddDbContext<ApplicationDbContext>
             //        (options => options.UseSqlServer(connection));
             //Connection to the Azure Database

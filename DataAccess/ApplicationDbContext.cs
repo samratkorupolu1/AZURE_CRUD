@@ -14,9 +14,11 @@ namespace Assignment4.DataAccess
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
       
-        //public DbSet<SignUp> SignUp { get; set; }
+        public DbSet<Rootobject> items { get; set; }
        
-        //public DbSet<Results> Results { get; set; }
+        public DbSet<Result> results { get; set; }
+
+        public DbSet<Pagination> paginations { get; set; }
 
     }
 }
