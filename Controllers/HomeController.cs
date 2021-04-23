@@ -65,6 +65,13 @@ namespace Assignment4
                     // JsonConvert is part of the NewtonSoft.Json Nuget package
                     root = JsonConvert.DeserializeObject<Rootobject>(parksData);
                 }
+
+                //foreach (Result x in root.results)
+                //{
+                //    dbContext.Result.Add(x);
+                //}
+                //dbContext.SaveChanges();
+
             }
             catch (Exception e)
             {
@@ -96,23 +103,23 @@ namespace Assignment4
             return View();
         }
 
-        public async Task<ViewResult> DatabaseOperations()
-        {
-            Result Result1 = new Result();
-            Result1.ID = 1;
-            Result1.ori = "Michael";
-            Result1.data_year = 2019;
-            Result1.offense = "Rape";
-            Result1.state_abbr = "FL";
-            Result1.actual = 21;
-            Result1.cleared = 11;
+        //public async Task<ViewResult> DatabaseOperations()
+        //{
+        //    Result Result1 = new Result();
+        //    Result1.ID = 1;
+        //    Result1.ori = "Michael";
+        //    Result1.data_year = 2019;
+        //    Result1.offense = "Rape";
+        //    Result1.state_abbr = "FL";
+        //    Result1.actual = 21;
+        //    Result1.cleared = 11;
 
-            dbContext.Result.Add(Result1);
+        //    dbContext.Result.Add(Result1);
 
-            dbContext.SaveChanges();
+        //    dbContext.SaveChanges();
 
-            return View();
-        }
+        //    return View();
+        //}
 
         //public IActionResult Explore()
         //{
