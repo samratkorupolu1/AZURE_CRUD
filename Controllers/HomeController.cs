@@ -18,9 +18,14 @@ namespace Assignment4
 {
     public class HomeController : Controller
     {
+
+        public ApplicationDbContext dbContext;
+        public HomeController(ApplicationDbContext context)
+        {
+            dbContext = context;
+        }
+
         HttpClient httpClient;
-
-
 
         static string BASE_URL = "https://api.usa.gov/crime/fbi/sapi";
         static string API_KEY = "iiHnOKfno2Mgkt5AynpvPpUQTEyxE77jo1RU8PIv"; //Add your API key here inside ""
@@ -40,33 +45,20 @@ namespace Assignment4
             httpClient.DefaultRequestHeaders.Accept.Add(
                 new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
 
-
-
             string NATIONAL_PARK_API_PATH = BASE_URL + "/api/summarized/state/TX/burglary/2009/2019";
             string parksData = "";
 
-
-
             Rootobject root = null;
-
-
-
             httpClient.BaseAddress = new Uri(NATIONAL_PARK_API_PATH);
-
-
 
             try
             {
                 HttpResponseMessage response = httpClient.GetAsync(NATIONAL_PARK_API_PATH).GetAwaiter().GetResult();
 
-
-
                 if (response.IsSuccessStatusCode)
                 {
                     parksData = response.Content.ReadAsStringAsync().GetAwaiter().GetResult();
                 }
-
-
 
                 if (!parksData.Equals(""))
                 {
@@ -79,14 +71,9 @@ namespace Assignment4
                 // This is a useful place to insert a breakpoint and observe the error message
                 Console.WriteLine(e.Message);
             }
-
-
-
             return View(root);
         }
-
-
-        
+       
         public IActionResult aboutUs()
         {
             return View();
@@ -109,6 +96,23 @@ namespace Assignment4
             return View();
         }
 
+        public async Task<ViewResult> DatabaseOperations()
+        {
+            Result Result1 = new Result();
+            Result1.ID = 1;
+            Result1.ori = "Michael";
+            Result1.data_year = 2019;
+            Result1.offense = "Rape";
+            Result1.state_abbr = "FL";
+            Result1.actual = 21;
+            Result1.cleared = 11;
+
+            dbContext.Result.Add(Result1);
+
+            dbContext.SaveChanges();
+
+            return View();
+        }
 
         //public IActionResult Explore()
         //{

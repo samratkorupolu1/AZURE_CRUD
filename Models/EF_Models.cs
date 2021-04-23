@@ -15,24 +15,23 @@ namespace Assignment4.Models
     {
         public class Rootobject
         {
-            public Result[] results { get; set; }
+            public int ID { get; set; }
+            //public Result[] results { get; set; } //Is it because we don't have it written as: 
+            public List<Result> results { get; set; }
+            //What is the differenc between those syntaxes?
             public Pagination pagination { get; set; }
         }
-
-
-
         public class Pagination
         {
+            public int ID { get; set; }
             public int count { get; set; }
             public int page { get; set; }
             public int pages { get; set; }
             public int per_page { get; set; }
         }
-
-
-
         public class Result
         {
+            public int ID { get; set; }
             public string ori { get; set; }
             public int data_year { get; set; }
             public string offense { get; set; }
