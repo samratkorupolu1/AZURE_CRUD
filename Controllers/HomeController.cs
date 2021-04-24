@@ -30,13 +30,8 @@ namespace Assignment4
         static string BASE_URL = "https://api.usa.gov/crime/fbi/sapi";
         static string API_KEY = "iiHnOKfno2Mgkt5AynpvPpUQTEyxE77jo1RU8PIv"; //Add your API key here inside ""
 
-
-
         // Obtaining the API key is easy. The same key should be usable across the entire
         // data.gov developer network, i.e. all data sources on data.gov.
-
-
-
         public IActionResult mainpage()
         {
             httpClient = new HttpClient();
@@ -68,14 +63,14 @@ namespace Assignment4
                     root = JsonConvert.DeserializeObject<Rootobject>(parksData);
                 }
 
-                //if (!dbContext.Results.Where(_ => true).Any())
-                //{
+                if (!dbContext.Results.Where(_ => true).Any())
+                {
                     foreach (Result x in root.results)
                     {
                         dbContext.Results.Add(x);
                     }
                     dbContext.SaveChanges();
-                //}
+                }
 
 
             }
@@ -84,6 +79,7 @@ namespace Assignment4
                 // This is a useful place to insert a breakpoint and observe the error message
                 Console.WriteLine(e.Message);
             }
+
 
             //Manually populate the ORI table, which will be used for a master-detail relationship with Result
             //ORI ori1 = new ORI();
@@ -191,11 +187,25 @@ namespace Assignment4
 
             return View(root);
         }
-       
+
+        // GET: Results
+        public async Task<ActionResult> Charts()
+        {
+            var offen = await dbContext.Results.Select(j => j.offense).Distinct().ToListAsync();
+            var oris = await dbContext.Results.Select(j => j.ori).Distinct().ToListAsync();
+            var crimes = dbContext.Results
+                .GroupBy(j => j.offense)
+                .Select(group => new {
+                    Count = group.Count()
+                });
+            var totcrimes = crimes.Select(a => a.Count).ToArray();
+            return new JsonResult(new { myOffenses = offen, myCrimes = totcrimes });
+        }
         public IActionResult aboutUs()
         {
             return View();
         }
+  
         public IActionResult create()
         {
             return View();
