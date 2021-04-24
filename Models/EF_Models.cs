@@ -11,8 +11,15 @@ using System.ComponentModel.DataAnnotations.Schema;
 #nullable enable
 namespace Assignment4.Models
 {
+
     public class EF_Models
     {
+        public class ORI
+        {
+            [Key] public string nameORI { get; set; }
+            public string county { get; set; }
+            public List<Result> results { get; set; }
+        }
         public class Rootobject
         {
             public int ID { get; set; }
@@ -31,6 +38,8 @@ namespace Assignment4.Models
         }
         public class Result
         {
+            [Key]
+            [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
             public int ID { get; set; }
             public string ori { get; set; }
             public int data_year { get; set; }

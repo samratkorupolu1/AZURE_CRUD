@@ -13,9 +13,10 @@ namespace Assignment4.DataAccess
     public class ApplicationDbContext : DbContext
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
-        public DbSet<Rootobject> Rootobject { get; set; }
-        public DbSet<Pagination> Pagination { get; set; }
-        public DbSet<Result> Result { get; set; }
+        public DbSet<Rootobject> Rootobjects { get; set; }
+        public DbSet<Pagination> Paginations { get; set; }
+        public DbSet<Result> Results { get; set; }
+        public DbSet<ORI> Agencies { get; set; }
         //public DbSet<SignUp> SignUp { get; set; }
 
         //public DbSet<Results> Results { get; set; }

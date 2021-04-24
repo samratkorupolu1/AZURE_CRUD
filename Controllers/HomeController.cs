@@ -45,7 +45,9 @@ namespace Assignment4
             httpClient.DefaultRequestHeaders.Accept.Add(
                 new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
 
-            string NATIONAL_PARK_API_PATH = BASE_URL + "/api/summarized/state/TX/burglary/2009/2019";
+            ////To populate our database we inserted four different offenses into the API string:
+            ////aggravated-assault, burglary, larceny, and violent-crime.
+            string NATIONAL_PARK_API_PATH = BASE_URL + "/api/summarized/state/TX/violent-crime/2009/2019";
             string parksData = "";
 
             Rootobject root = null;
@@ -66,11 +68,15 @@ namespace Assignment4
                     root = JsonConvert.DeserializeObject<Rootobject>(parksData);
                 }
 
-                //foreach (Result x in root.results)
+                //if (!dbContext.Results.Where(_ => true).Any())
                 //{
-                //    dbContext.Result.Add(x);
+                    foreach (Result x in root.results)
+                    {
+                        dbContext.Results.Add(x);
+                    }
+                    dbContext.SaveChanges();
                 //}
-                //dbContext.SaveChanges();
+
 
             }
             catch (Exception e)
@@ -78,6 +84,111 @@ namespace Assignment4
                 // This is a useful place to insert a breakpoint and observe the error message
                 Console.WriteLine(e.Message);
             }
+
+            //Manually populate the ORI table, which will be used for a master-detail relationship with Result
+            //ORI ori1 = new ORI();
+            //ori1.nameORI = "TX0010000";
+            //ori1.county = "Anderson";
+
+            //ORI ori2 = new ORI();
+            //ori2.nameORI = "TX0010100";
+            //ori2.county = "Anderson";
+
+            //ORI ori3 = new ORI();
+            //ori3.nameORI = "TX0010300";
+            //ori3.county = "Anderson";
+
+            //ORI ori4 = new ORI();
+            //ori4.nameORI = "TX0020000";
+            //ori4.county = "Andrews";
+
+            //ORI ori5 = new ORI();
+            //ori5.nameORI = "TX0020100";
+            //ori5.county = "Andrews";
+
+            //ORI ori6 = new ORI();
+            //ori6.nameORI = "TX0030000";
+            //ori6.county = "Angelina";
+
+            //ORI ori7 = new ORI();
+            //ori7.nameORI = "TX0030100";
+            //ori7.county = "Angelina";
+
+            //ORI ori8 = new ORI();
+            //ori8.nameORI = "TX0030200";
+            //ori8.county = "Angelina";
+
+            //ORI ori9 = new ORI();
+            //ori9.nameORI = "TX0030400";
+            //ori9.county = "Angelina";
+
+            //ORI ori10 = new ORI();
+            //ori10.nameORI = "TX0031300";
+            //ori10.county = "Angelina";
+
+            //ORI ori11 = new ORI();
+            //ori11.nameORI = "TX0040000";
+            //ori11.county = "Aransas";
+
+            //ORI ori12 = new ORI();
+            //ori12.nameORI = "TX0040100";
+            //ori12.county = "Aransas";
+
+            //ORI ori13 = new ORI();
+            //ori13.nameORI = "TX0040200";
+            //ori13.county = "Aransas";
+
+            //ORI ori14 = new ORI();
+            //ori14.nameORI = "TX0050000";
+            //ori14.county = "Archer";
+
+            //ORI ori15 = new ORI();
+            //ori15.nameORI = "TX0050200";
+            //ori15.county = "Archer";
+
+            //ORI ori16 = new ORI();
+            //ori16.nameORI = "TX0060000";
+            //ori16.county = "Armstrong";
+
+            //ORI ori17 = new ORI();
+            //ori17.nameORI = "TX0070000";
+            //ori17.county = "Atascosa";
+
+            //ORI ori18 = new ORI();
+            //ori18.nameORI = "TX0070100";
+            //ori18.county = "Atascosa";
+
+            //ORI ori19 = new ORI();
+            //ori19.nameORI = "TX0070200";
+            //ori19.county = "Atascosa";
+
+            //ORI ori20 = new ORI();
+            //ori20.nameORI = "TX0070300";
+            //ori20.county = "Atascosa";
+
+            //dbContext.Agencies.Add(ori1);
+            //dbContext.Agencies.Add(ori2);
+            //dbContext.Agencies.Add(ori3);
+            //dbContext.Agencies.Add(ori4);
+            //dbContext.Agencies.Add(ori5);
+            //dbContext.Agencies.Add(ori6);
+            //dbContext.Agencies.Add(ori7);
+            //dbContext.Agencies.Add(ori8);
+            //dbContext.Agencies.Add(ori9);
+            //dbContext.Agencies.Add(ori10);
+            //dbContext.Agencies.Add(ori11);
+            //dbContext.Agencies.Add(ori12);
+            //dbContext.Agencies.Add(ori13);
+            //dbContext.Agencies.Add(ori14);
+            //dbContext.Agencies.Add(ori15);
+            //dbContext.Agencies.Add(ori16);
+            //dbContext.Agencies.Add(ori17);
+            //dbContext.Agencies.Add(ori18);
+            //dbContext.Agencies.Add(ori19);
+            //dbContext.Agencies.Add(ori20);
+
+            //dbContext.SaveChanges();
+
             return View(root);
         }
        
@@ -102,6 +213,14 @@ namespace Assignment4
         {
             return View();
         }
+
+        //public IActionResult Remove(int id)
+        //{
+        //    Result toDelete = dbContext.Result.Find(id);
+        //    // TODO alert confirmation as argument
+        //    dbContext.Result.Remove(toDelete);
+        //    return View("mainpage");
+        //}
 
         //public async Task<ViewResult> DatabaseOperations()
         //{
