@@ -14,6 +14,7 @@ using Assignment4.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 
+
 namespace Assignment4
 {
     public class HomeController : Controller
@@ -194,18 +195,20 @@ namespace Assignment4
         {
             var offen = await dbContext.Results.Select(j => j.offense).Distinct().ToListAsync();
             var oris = await dbContext.Results.Select(j => j.ori).Distinct().ToListAsync();
-            var crimes = dbContext.Results
+            var crimes = (dbContext.Results
                 //.GroupBy(j => j.offense)
                 .Where(j => j.offense == "larceny")
-                .Select(j => j.actual);
+                .Select(j => j.actual)).ToList<int>();
             //.Select(group => new {
             //    Count = group.Count()
             //});
             //var totcrimes = crimes.Select(a => a.Count).ToArray();
             //ViewBag.Data = Newtonsoft.Json.JsonConvert.SerializeObject(crimes);
             //ViewBag.ObjectName = Newtonsoft.Json.JsonConvert.SerializeObject(oris);
-            return new JsonResult(new { myOffenses = oris, myCrimes = crimes });
-            //return View();
+            //return new JsonResult(new { myOffenses = oris, myCrimes = crimes });
+           
+
+            return View(new Charts(oris, crimes));
         }
         public IActionResult aboutUs()
         {
