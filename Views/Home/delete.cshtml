@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@model Int32
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -25,7 +26,15 @@
         </div>
 	</div>
 	<div class="container">
-		<table class="table table-hover">
+		@if (Model == 1)
+		{
+			<h1>Succesfull</h1>
+		}
+		else
+		{
+			<h1>Failed</h1>
+		}
+		@*<table class="table table-hover">
 			<thead>
 				<tr>
 					<th>Year</th>
@@ -92,7 +101,7 @@
 					</td>
 				</tr>
 			</tbody>
-		</table>
+		</table>*@
 	</div>
 	<div class="bottom">
         <a asp-area="" asp-controller="Home" asp-action="mainpage"><input type=button value='Main Page'></a>

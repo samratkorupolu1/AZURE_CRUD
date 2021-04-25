@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@model Assignment4.Models.EF_Models.Result
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -19,78 +21,63 @@
 			Project by Dharmarakshit Harley, Samrat Korupolu and Michael Zeolla
 		</pWhite>
 		<div class="header-right">
-			
+
 		</div>
 	</div>
 	<div class="container">
-		<table class="table table-hover">
-			<thead>
-				<tr>
-					<th>Year</th>
-					<th>Offenses</th>
-					<th>Count</th>
-					<th>Update</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td style="padding:0 30px 0 30px;">2019</td>
-					<td style="padding:0 30px 0 30px;">All Other Offenses</td>
-					<td style="padding:0 30px 0 30px;">2,659,001</td>
-					<td >
-						<button onclick="window.open('file:///C:/Users/samrat/source/repos/michaelzeolla/Assignment_LookAndFeel/create.html'); return false;">UPDATE</button>
-					</td>
-				</tr>
-				<tr>
-					<td>2019</td>
-					<td>Drug</td>
-					<td>1,239,909</td>
-					<td >
-						<button onclick="window.open('file:///C:/Users/samrat/source/repos/michaelzeolla/Assignment_LookAndFeel/create.html'); return false;">UPDATE</button>
-					</td>
-				</tr>
-				<tr>
-					<td>2019</td>
-					<td>Simple Assault</td>
-					<td>836,720</td>
-					<td>
-						<button onclick="window.open('file:///C:/Users/samrat/source/repos/michaelzeolla/Assignment_LookAndFeel/create.html'); return false;">UPDATE</button>
-					</td>
-				</tr>
-				<tr>
-					<td>2019</td>
-					<td>Driving Under Influence</td>
-					<td>731,967</td>
-					<td>
-						<button onclick="window.open('file:///C:/Users/samrat/source/repos/michaelzeolla/Assignment_LookAndFeel/create.html'); return false;">UPDATE</button>
-					</td>
-				</tr>
-				<tr>
-					<td>2019</td>
-					<td>Larsony - Theft</td>
-					<td>701,523</td>
-					<td>
-						<button onclick="window.open('file:///C:/Users/samrat/source/repos/michaelzeolla/Assignment_LookAndFeel/create.html'); return false;">UPDATE</button>
-					</td>
-				</tr>
-				<tr>
-					<td>2019</td>
-					<td>Aggravated Assault</td>
-					<td>317,632</td>
-					<td>
-						<button onclick="window.open('file:///C:/Users/samrat/source/repos/michaelzeolla/Assignment_LookAndFeel/create.html'); return false;">UPDATE</button>
-					</td>
-				</tr>
-				<tr>
-					<td>2019</td>
-					<td>Drunkness</td>
-					<td>231,693</td>
-					<td>
-						<button onclick="window.open('file:///C:/Users/samrat/source/repos/michaelzeolla/Assignment_LookAndFeel/create.html'); return false;">UPDATE</button>
-					</td>
-				</tr>
-			</tbody>
-		</table>
+		<h1>update</h1>
+
+		<h4>Result1</h4>
+		<hr />
+		<div class="row">
+			<div class="col-md-4">
+				<form asp-action="update">
+					<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+					<div class="form-group" hidden>
+						<label asp-for="ID" class="control-label"></label>
+						<input asp-for="ID" class="form-control" />
+						<span asp-validation-for="ID" class="text-danger"></span>
+					</div>
+					<div class="form-group" hidden>
+						<label asp-for="ori" class="control-label"></label>
+						<input asp-for="ori" class="form-control" />
+						<span asp-validation-for="ori" class="text-danger"></span>
+					</div>
+					<div class="form-group" hidden>
+						<label asp-for="data_year" class="control-label"></label>
+						<input asp-for="data_year" class="form-control" />
+						<span asp-validation-for="data_year" class="text-danger"></span>
+					</div>
+					<div class="form-group" hidden>
+						<label asp-for="offense" class="control-label"></label>
+						<input asp-for="offense" class="form-control" />
+						<span asp-validation-for="offense" class="text-danger"></span>
+					</div>
+					<div class="form-group" hidden>
+						<label asp-for="state_abbr" class="control-label"></label>
+						<input asp-for="state_abbr" class="form-control" />
+						<span asp-validation-for="state_abbr" class="text-danger"></span>
+					</div>
+					<div class="form-group" hidden>
+						<label asp-for="cleared" class="control-label"></label>
+						<input asp-for="cleared" class="form-control" />
+						<span asp-validation-for="cleared" class="text-danger"></span>
+					</div>
+					<div class="form-group">
+						<label asp-for="actual" class="control-label"></label>
+						<input asp-for="actual" class="form-control" />
+						<span asp-validation-for="actual" class="text-danger"></span>
+					</div>
+					<div class="form-group">
+						<input type="submit" value="Save" class="btn btn-primary" />
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<div>
+			<a asp-action="Index">Back to List</a>
+		</div>
 	</div>
 	<div class="footer">
 		<pWhite>Copyright &#169 May 2021 | ISM 6225 | USF</pWhite>

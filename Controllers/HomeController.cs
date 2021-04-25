@@ -223,15 +223,32 @@ namespace Assignment4
         }
         public IActionResult update(int ID)
         {
-            
-            return View();
+            var currResult = dbContext.Results.Where(x => x.ID == ID).FirstOrDefault();
+            return View(currResult);
         }
-        //public IActionResult delete(int ID)
-        //{
-        //    Result result = new 
-        //    dbContext.Results.Remove();
-        //    return View();
-        //}
+
+        [HttpPost]
+        public IActionResult update(Result result)
+        {
+            dbContext.Results.Update(result);
+            int count = dbContext.SaveChanges();
+            
+            return RedirectToAction("details","Home",new { ori = result.ori });
+        }
+
+
+        public IActionResult delete(int ID)
+        {
+            var currResult = dbContext.Results.Where(x => x.ID == ID).FirstOrDefault();
+            dbContext.Results.Remove(currResult);
+            int count = dbContext.SaveChanges();
+            if (count > 0)
+            {
+                return View(1);
+            }
+            
+            return View(0);
+        }
 
         public IActionResult Index()
         {
