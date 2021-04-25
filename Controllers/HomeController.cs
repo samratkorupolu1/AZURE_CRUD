@@ -215,9 +215,11 @@ namespace Assignment4
             return View();
         }
   
-        public IActionResult create()
+        public IActionResult details(string ori)
         {
-            return View();
+            var lstResulsts = dbContext.Results.Where(x => x.ori == ori).ToList();
+
+            return View(lstResulsts);
         }
         public IActionResult update()
         {
@@ -236,7 +238,16 @@ namespace Assignment4
         public IActionResult masterdetail()
         {
             //We need to access the Agencies table here and return in to the masterdetail View
-            return View();
+            var agencis = dbContext.Agencies.ToList();
+            List<ORI> lstORI = new List<ORI>();
+            foreach (var agency in agencis)
+            {
+                ORI oRI = new ORI();
+                oRI.county = agency.county;
+                oRI.nameORI = agency.nameORI;
+                lstORI.Add(oRI);
+            }
+            return View(lstORI);
         }
 
         //public IActionResult Remove(int id)
