@@ -49,16 +49,7 @@ namespace Assignment4.Models
             public int actual { get; set; }
         }
 
-
-
     }
-
-    //public class geoloction
-    //{
-    //    public long latitude { get; set; }
-    //    public long longitude { get; set; }
-    //    public string? human_address { get; set; }
-    //}
 }
 
   

@@ -226,12 +226,12 @@ namespace Assignment4
             
             return View();
         }
-        public IActionResult delete(int ID)
-        {
-            Result result = new 
-            dbContext.Results.Remove();
-            return View();
-        }
+        //public IActionResult delete(int ID)
+        //{
+        //    Result result = new 
+        //    dbContext.Results.Remove();
+        //    return View();
+        //}
 
         public IActionResult Index()
         {

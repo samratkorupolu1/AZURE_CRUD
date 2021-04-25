@@ -18,11 +18,12 @@
         <pWhite>
             Project by Dharmarakshit Harley, Samrat Korupolu and Michael Zeolla
         </pWhite>
-        <div class="header-right">
-            <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-            <a class="active" asp-area="" asp-controller="Home" asp-action="mainpage">Main Page</a>
-            <a asp-area="" asp-controller="Home" asp-action="aboutUs">About Us</a>
-        </div>
+		<div class="header-right">
+			<a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+			<a class="active" asp-area="" asp-controller="Home" asp-action="masterdetail">Main Page</a>
+			<a asp-area="" asp-controller="Home" asp-action="Charts">Charts</a>
+			<a asp-area="" asp-controller="Home" asp-action="aboutUs">About Us</a>
+		</div>
     </div>
     <div class="container">
         @model IEnumerable<Assignment4.Models.EF_Models.Result>
@@ -36,9 +37,9 @@
             <thead>
                 <tr>
                     <th class="align-middle" scope="col">ORI</th>
-                    <th class="align-middle" scope="col">County</th>
+                    <th class="align-middle" scope="col">Offense</th>
                     @*<th class="align-middle" scope="col">Total Count of Crimes</th>*@
-                    <th> Actuals</th>
+                    <th>Total Crimes</th>
                     <th class="align-middle" scope="col">Operations</th>
                 </tr>
             </thead>
