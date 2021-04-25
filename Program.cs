@@ -16,6 +16,7 @@ namespace Assignment4
             CreateHostBuilder(args).Build().Run();
         }
 
+        // Default functions 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
