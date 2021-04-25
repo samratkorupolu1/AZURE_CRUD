@@ -221,12 +221,15 @@ namespace Assignment4
 
             return View(lstResulsts);
         }
-        public IActionResult update()
+        public IActionResult update(int ID)
         {
+            
             return View();
         }
-        public IActionResult delete()
+        public IActionResult delete(int ID)
         {
+            Result result = new 
+            dbContext.Results.Remove();
             return View();
         }
 

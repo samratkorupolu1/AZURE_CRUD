@@ -39,6 +39,7 @@
                     <th class="align-middle" scope="col">County</th>
                     @*<th class="align-middle" scope="col">Total Count of Crimes</th>*@
                     <th> Actuals</th>
+                    <th class="align-middle" scope="col">Operations</th>
                 </tr>
             </thead>
             <tbody>
@@ -53,6 +54,9 @@
                         </td>
                         <td>
                             @row.actual
+                        </td>
+                        <td>
+                            <a asp-area="" asp-controller="Home" asp-action="delete" asp-route-ID="@row.ID"><input type=button value='Delete'></a>
                         </td>
                         @*<td>
                                 <form asp-controller="Home" asp-action="Remove" method="post">
