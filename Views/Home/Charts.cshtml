@@ -12,30 +12,30 @@
 </head>
 
 <body>
-    <div class="header">
-        <h2white>
-            FBI Crimes by Offense and Year: Graphs
-        </h2white>
-        <hr>
-        <pWhite>
-            Project by Dharmarakshit Harley, Samrat Korupolu and Michael Zeolla
-        </pWhite>
-        <div class="header-right">
-            <a class="active" asp-area="" asp-controller="Home" asp-action="Charts">Charts</a>
-            <a asp-area="" asp-controller="Home" asp-action="mainpage">Main Page</a>
-            <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-            <a asp-area="" asp-controller="Home" asp-action="aboutUs">About Us</a>
-        </div>
-    </div>
-    <div class="container">
-        <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+	<div class="header">
+		<h2white>
+			FBI Crimes by Offense and Year: Graphs
+		</h2white>
+		<hr>
+		<pWhite>
+			Project by Dharmarakshit Harley, Samrat Korupolu and Michael Zeolla
+		</pWhite>
+		<div class="header-right">
+			<a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+			<a asp-area="" asp-controller="Home" asp-action="mainpage">Main Page</a>
+			<a class="active" asp-area="" asp-controller="Home" asp-action="Charts">Charts</a>
+			<a asp-area="" asp-controller="Home" asp-action="aboutUs">About Us</a>
+		</div>
+	</div>
+	<div class="container">
+		<div id="chartContainer" style="height: 300px; width: 100%;"></div>
 
-        <canvas id="canvas" width="400" height="400"></canvas>
-        @section Scripts{
-            
-            <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-            <script type="text/javascript">
-                
+		<canvas id="canvas" width="400" height="400"></canvas>
+		@section Scripts{
+
+			<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+			<script type="text/javascript">
+
                 window.onload = function () {
                     var chart = new CanvasJS.Chart("chartContainer", {
                         title: {
@@ -47,13 +47,13 @@
                                 type: "column",
                                 dataPoints: [
                                  @{
-                                     
+
                                      string tStr = "";
                                  }
 
                                     @for (int i = 0; i < Model.oris.Count; i++)
                                     {
-                                        
+
                                         tStr += @"{ label: '" + Model.oris[i] + @"' , y: " + Model.crimes[i].ToString() +"}";
                                         if (i < Model.oris.Count - 1)
                                             tStr += ",";
@@ -69,166 +69,71 @@
                     });
                     chart.render();
                 }
-            </script>
-            @*<script>
-                function GetJSON_Simple() {
-                    var resp = [];
-                    alert("Test1s")
-                    $.ajax({
-                        type: "GET",
-                        url: '/Home/Charts',
-                        async: false,
-                        contentType: "application/json",
-                        success: function (data) {
+			</script>
+			@*<script>
+					function GetJSON_Simple() {
+						var resp = [];
+						alert("Test1s")
+						$.ajax({
+							type: "GET",
+							url: '/Home/Charts',
+							async: false,
+							contentType: "application/json",
+							success: function (data) {
 
-                            resp.push(data);
-                        },
-                        error: function (req, status, error) {
-                            // do something with error
-                            alert("error");
-                        }
-                    });
-                    return resp;
-                }
-                var simpleData = GetJSON_Simple();
-                var ctx = document.getElementById("canvas")
-                var lineChartData = {
-                    labels: simpleData[0].myOffenses,
-                    datasets: [{
-                        label: 'Sucess',
-                        borderColor: "MediumSeaGreen",
-                        backgroundColor: "MediumSeaGreen",
-                        fill: false,
-                        data: simpleData[0].myCrimes,
-                        yAxisID: 'y-axis-1',
-                    }]
-                };
+								resp.push(data);
+							},
+							error: function (req, status, error) {
+								// do something with error
+								alert("error");
+							}
+						});
+						return resp;
+					}
+					var simpleData = GetJSON_Simple();
+					var ctx = document.getElementById("canvas")
+					var lineChartData = {
+						labels: simpleData[0].myOffenses,
+						datasets: [{
+							label: 'Sucess',
+							borderColor: "MediumSeaGreen",
+							backgroundColor: "MediumSeaGreen",
+							fill: false,
+							data: simpleData[0].myCrimes,
+							yAxisID: 'y-axis-1',
+						}]
+					};
 
-                window.myLine = Chart.Line(ctx, {
-                    data: lineChartData,
-                    options: {
-                        responsive: true,
-                        hoverMode: 'index',
-                        stacked: false,
-                        title: {
-                            display: true,
-                            text: 'Processes'
-                        },
-                        scales: {
-                            yAxes: [{
-                                type: 'linear',
-                                display: true,
-                                position: 'left',
-                                id: 'y-axis-1',
-                            }],
-                        }
-                    }
-                });
+					window.myLine = Chart.Line(ctx, {
+						data: lineChartData,
+						options: {
+							responsive: true,
+							hoverMode: 'index',
+							stacked: false,
+							title: {
+								display: true,
+								text: 'Processes'
+							},
+							scales: {
+								yAxes: [{
+									type: 'linear',
+									display: true,
+									position: 'left',
+									id: 'y-axis-1',
+								}],
+							}
+						}
+					});
 
-            </script>*@
-        }
+				</script>*@
+		}
 
-        @{
-            var t_mdoel = Model;
-        }
-    </div>
+		@{
+			var t_mdoel = Model;
+		}
+	</div>
+	<div class="footer">
+		<pWhite>Copyright &#169 May 2021 | ISM 6225 | USF</pWhite>
+	</div>
 </body>
 </html>
-@*@{
-        Layout = null;
-    }
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <meta name="viewport" content="width=device-width" />
-        <title>Charts</title>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.2/Chart.bundle.min.js"></script>
-        <script>
-
-            var barChartData =
-                {
-                    labels: @Html.Raw(ViewBag.ObjectName), //the names displayed on the x-axis, see images below
-                    datasets: [{
-                        label: 'ProductWise Sales Count',
-                        backgroundColor: [
-                            "#f990a7",
-                            "#aad2ed",
-                            "#9966FF",
-                            "#99e5e5",
-                            "#f7bd83",
-                        ],
-                        borderWidth: 2,
-                        data: @ViewBag.Data  //what you returned back from controller. values displayed on the y-axis, see images below
-                    }]
-                };
-
-                window.onload = function () {
-                    var ctx1 = document.getElementById("barcanvas").getContext("2d");
-                    window.myBar = new Chart(ctx1,
-                        {
-                            type: 'bar',
-                            data: barChartData,
-                            options:
-                                {
-                                    title:
-                                    {
-                                        display: true,
-                                        text: "ProductWise Sales Count"
-                                    },
-                                    responsive: true,
-                                    maintainAspectRatio: true
-                                }
-                        });
-                }
-        </script>
-    </head>
-    <body>
-        <div style="text-align: center">
-            <canvas id="barcanvas"></canvas>
-        </div>
-        <div style="text-align: center">
-            Disclaimer:- This data is for demo it is
-            not real data it wont relate to any company
-        </div>
-    </body>
-    </html>*@
-
-<!--</div>
-    <div class="footer">
-        <pWhite>Copyright &#169 May 2021 | ISM 6225 | USF</pWhite>
-    </div>
-
--->
-@*<!DOCTYPE HTML>
-    <html>
-    <head>
-        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-        <script type="text/javascript">
-
-            window.onload = function () {
-                var chart = new CanvasJS.Chart("chartContainer", {
-                    title: {
-                        text: "My First Chart in CanvasJS"
-                    },
-                    data: [
-                        {
-                            // Change type to "doughnut", "line", "splineArea", etc.
-                            type: "column",
-                            dataPoints: [
-                                { label: "apple", y: 10 },
-                                { label: "orange", y: 15 },
-                                { label: "banana", y: 25 },
-                                { label: "mango", y: 30 },
-                                { label: "grape", y: 28 }
-                            ]
-                        }
-                    ]
-                });
-                chart.render();
-            }
-        </script>
-    </head>
-    <body>
-        <div id="chartContainer" style="height: 300px; width: 100%;"></div>
-    </body>
-    </html>*@

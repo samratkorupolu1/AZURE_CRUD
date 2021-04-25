@@ -17,9 +17,6 @@ namespace Assignment4.DataAccess
         public DbSet<Pagination> Paginations { get; set; }
         public DbSet<Result> Results { get; set; }
         public DbSet<ORI> Agencies { get; set; }
-        //public DbSet<SignUp> SignUp { get; set; }
-
-        //public DbSet<Results> Results { get; set; }
-
+        
     }
 }

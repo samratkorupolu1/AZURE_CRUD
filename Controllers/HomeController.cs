@@ -235,6 +235,7 @@ namespace Assignment4
 
         public IActionResult masterdetail()
         {
+            //We need to access the Agencies table here and return in to the masterdetail View
             return View();
         }
 
@@ -264,50 +265,7 @@ namespace Assignment4
         //    return View();
         //}
 
-        //public IActionResult Explore()
-        //{
-        //    return View();
-        //}
-
-        //public IActionResult RegisteredUsers()
-        //{
-        //    IEnumerable<SignUp> allUsers = applicationDbContext.SignUp;
-        //    return View(allUsers);
-        //}
-
-        //public IActionResult DeleteUser(string email)
-        //{
-        //    SignUp user = applicationDbContext.SignUp.Find(email);
-        //    if (user != null)
-        //    {
-        //        applicationDbContext.SignUp.Remove(user);
-        //        applicationDbContext.SaveChanges();
-        //    }
-        //    IEnumerable<SignUp> allUsers = applicationDbContext.SignUp;
-        //    return View("RegisteredUsers",allUsers);
-        //}
-
-        //public IActionResult UpdateUser(string email)
-        //{
-        //    ViewBag.email = email;
-        //    return View();
-        //}
-
-        //[HttpPost]
-        //public IActionResult UpdateUser(SignUp userChanges)
-        //{
-        //    var user = applicationDbContext.Attach(userChanges);
-        //    user.State = Microsoft.EntityFrameworkCore.EntityState.Modified;
-        //    applicationDbContext.SaveChanges();
-        //    IEnumerable<SignUp> allUsers = applicationDbContext.SignUp;
-        //    return View("RegisteredUsers", allUsers);
-        //}
-
-        //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        //public IActionResult Error()
-        //{
-        //    return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        //}
+        
 
     }
     
