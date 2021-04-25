@@ -18,25 +18,25 @@
         <pWhite>
             Project by Dharmarakshit Harley, Samrat Korupolu and Michael Zeolla
         </pWhite>
-        <div class="header-right">
-            <a asp-area="" asp-controller="Home" asp-action="home">Home</a>
-            <a class="active" asp-area="" asp-controller="Home" asp-action="mainpage">Main Page</a>
-            <a asp-area="" asp-controller="Home" asp-action="aboutUs">About Us</a>
-        </div>
+		<div class="header-right">
+			<a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+			<a class="active" asp-area="" asp-controller="Home" asp-action="mainpage">Main Page</a>
+			<a asp-area="" asp-controller="Home" asp-action="Charts">Charts</a>
+			<a asp-area="" asp-controller="Home" asp-action="aboutUs">About Us</a>
+		</div>
     </div>
-    @*<div class="container">
+    <div class="container">
         @model Assignment4.Models.EF_Models.Rootobject
 
         @{
             ViewData["Title"] = "Index";
         }
-        <h2>Index</h2>
 
         <table class="table">
             <thead>
                 <tr>
                     <th class="align-middle" scope="col">ORI</th>
-                    <th class="align-middle" scope="col">Offense</th>
+                    <th class="align-middle" scope="col">County</th>
                     <th class="align-middle" scope="col">Total Count of Crimes</th>
                     <th></th>
                 </tr>
@@ -66,7 +66,7 @@
             </tbody>
         </table>
 
-    </div>*@
+    </div>
     <div class="bottom">
         <a asp-area="" asp-controller="Home" asp-action="create"><input type=button value='CREATE'></a>
         <a asp-area="" asp-controller="Home" asp-action="update"><input type=button value='UPDATE'></a>

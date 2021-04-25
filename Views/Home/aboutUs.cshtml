@@ -18,11 +18,12 @@
         <pWhite>
             Project by Dharmarakshit Harley, Samrat Korupolu and Michael Zeolla
         </pWhite>
-        <div class="header-right">
-            <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-            <a asp-area="" asp-controller="Home" asp-action="mainpage">Main Page</a>
-            <a class="active" asp-area="" asp-controller="Home" asp-action="aboutUs">About Us</a>
-        </div>
+		<div class="header-right">
+			<a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+			<a asp-area="" asp-controller="Home" asp-action="mainpage">Main Page</a>
+			<a asp-area="" asp-controller="Home" asp-action="Charts">Charts</a>
+			<a class="active" asp-area="" asp-controller="Home" asp-action="aboutUs">About Us</a>
+		</div>
     </div>
     <div class="container">
         <div class="row">
@@ -33,7 +34,7 @@
                     <p style="font-size: 18px">
                         Michael is a second-semester student in the program and resides in Jacksonville, Florida. He graduated from the University of Florida
                         in 2020 and aspires to be a data analyst. Particular interests include sports, and revolution of analytics in sports is a major passion.
-                        He designed the website format, About Us page, and the headers and footers.
+                        He designed the website format from assignment 3, connected to the API, and saved it to the local database.
                     </p>
                 </div>
             </div>
@@ -44,7 +45,7 @@
                     <p style="font-size: 18px">
                         Dharmarakshit is a first-semester student with 6 years of experience in mostly German Automotive companies. He has recently moved to Tampa, Florida in Jan 2021. He will be graduated from the University of Florida at end of Spring 2022. He is working towards becoming a data scientist.
                         He is very passionate about cricket, mostly watching, reading books, watching Netflix.
-                        He designed the website structure, worked on the About Us page, creating CRUD operation for the website, and deployment the website.
+                        He applied the previous assignment's look and feel and did the deployment the website.
                     </p>
                 </div>
             </div>
@@ -55,7 +56,7 @@
                     <p style="font-size: 18px">
                         Samrat is a BAIS student at USF Muma and resides in Tampa, Florida. He is a Retired Lieutenant from Indian Navy.
                         Aspires to be a data analyst. Passionate about machine learning & analytics.
-                        He implemented the CRUD functionality.
+                        He implemented the data table and attempted the chart.
                     </p>
                 </div>
             </div>
@@ -72,17 +73,17 @@
         <br />
         <p>Our data model is referenced from the FBI's given data diagram. For our assignment, we want to look at the total number of arrests by the type of offense and year.</p>
         <br />
-        <img src="~/Img/FBI_ERD.png" asp-append-version="true">
+        <img src="~/Img/FBI_ERD2.png" asp-append-version="true">
         <br />
         <h2black>API Endpoints</h2black>
         <br />
-        <a href="https://crime-data-explorer.fr.cloud.gov/api" target="_blank">List of FBI Crime Data's APIs</a>
+        <a href="https://crime-data-explorer.fr.cloud.gov/api" target="_blank">Link to our API (summarized-data-controller)</a>
         <br />
-        <p>The FBI Crime Data Explorer offers several extentions to their API for information on arrests and offenders that can be used for our project's data.</p>
+        <p>This API looks at the number offenses in their database, grouped by the ORI (agency), year, and offense for every ORI in the state..</p>
         <br />
         <h2black>GitHub Link</h2black>
         <br />
-        <a href="https://github.com/michaelzeolla/Assignment_LookAndFeel" target="_blank">Click here for the team's repository on Michael Zeolla's GitHub</a>
+        <a href="https://github.com/samratkorupolu1/Assignment4" target="_blank">Click here for the team's repository on Samrat Korupolu's GitHub</a>
         <br />
     </div>
 

@@ -185,21 +185,27 @@ namespace Assignment4
 
             //dbContext.SaveChanges();
 
-            return View(root);
+            return View(root); //root
         }
 
         // GET: Results
+        //public ActionResult Charts()
         public async Task<ActionResult> Charts()
         {
             var offen = await dbContext.Results.Select(j => j.offense).Distinct().ToListAsync();
             var oris = await dbContext.Results.Select(j => j.ori).Distinct().ToListAsync();
             var crimes = dbContext.Results
-                .GroupBy(j => j.offense)
-                .Select(group => new {
-                    Count = group.Count()
-                });
-            var totcrimes = crimes.Select(a => a.Count).ToArray();
-            return new JsonResult(new { myOffenses = offen, myCrimes = totcrimes });
+                //.GroupBy(j => j.offense)
+                .Where(j => j.offense == "larceny")
+                .Select(j => j.actual);
+            //.Select(group => new {
+            //    Count = group.Count()
+            //});
+            //var totcrimes = crimes.Select(a => a.Count).ToArray();
+            //ViewBag.Data = Newtonsoft.Json.JsonConvert.SerializeObject(crimes);
+            //ViewBag.ObjectName = Newtonsoft.Json.JsonConvert.SerializeObject(oris);
+            return new JsonResult(new { myOffenses = oris, myCrimes = crimes });
+            //return View();
         }
         public IActionResult aboutUs()
         {
@@ -220,6 +226,11 @@ namespace Assignment4
         }
 
         public IActionResult Index()
+        {
+            return View();
+        }
+
+        public IActionResult masterdetail()
         {
             return View();
         }
