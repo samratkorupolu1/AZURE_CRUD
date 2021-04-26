@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "mssql2": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/fbiserver/databases/FBIProject",
+      "type": "mssql.azure",
+      "connectionId": "fbi_connectionstring",
+      "secretStore": "LocalSecretsFile"
+    },
+    "mssql1": {
+      "type": "mssql.onprem",
+      "connectionId": "Data/Project_DB/ConnectionString",
+      "secretStore": "LocalSecretsFile"
+    }
+  }
+}

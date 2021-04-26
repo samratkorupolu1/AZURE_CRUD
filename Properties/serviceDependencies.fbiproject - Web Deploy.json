@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "type": "mssql",
+      "connectionId": "Data/Project_DB/ConnectionString",
+      "suggestion": "true",
+      "ignored": "true"
+    },
+    "mssql2": {
+      "type": "mssql.onprem",
+      "connectionId": "fbi_connectionstring",
+      "secretStore": "AzureAppSettings"
+    }
+  }
+}

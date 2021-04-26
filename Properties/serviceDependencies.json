@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "mssql2": {
+      "type": "mssql",
+      "connectionId": "fbi_connectionstring"
+    },
+    "mssql1": {
+      "type": "mssql",
+      "connectionId": "Data/Project_DB/ConnectionString"
+    }
+  }
+}

@@ -36,15 +36,16 @@ namespace Assignment4
             });
 
             services.AddControllersWithViews();
-            //services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration["Data:Project_DB:ConnectionString"]));
+            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration["Data:Project_DB:ConnectionString"]));
 
-            var connection = @"Server=(localdb)\mssqllocaldb;Database=samDB;Trusted_Connection=True;ConnectRetryCount=0";
+            //var connection = @"Server=(localdb)\mssqllocaldb;Database=samDB;Trusted_Connection=True;ConnectRetryCount=0";
+            var connection = @"Server=tcp:fbiserver.database.windows.net,1433;Initial Catalog=FBIProject;Persist Security Info=False;User ID=fbiserveradmin;Password=Michael@123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
             //services.AddDbContext<ApplicationDbContext>
             //        (options => options.UseSqlServer(connection));
             //Connection to the Azure Database
             //var connection = @"Server=tcp:university1.database.windows.net,1433;Initial Catalog=University_DB;Persist Security Info=False;User ID=Suraj362;Password=Bond@007;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
-            services.AddDbContext<ApplicationDbContext>
-                    (options => options.UseSqlServer(connection));
+            //services.AddDbContext<ApplicationDbContext>
+            //        (options => options.UseSqlServer(connection));
 
         }
 
